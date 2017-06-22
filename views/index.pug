@@ -1,40 +1,31 @@
 extends layout
 
 block content
-	script(src="/javascripts/typeahead.bundle.min.js")
-	//script(src="/javascripts/search.js")
+	link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css")
+	script(src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.min.js")
 	section.hero.is-primary.is-bold
 		.hero-body
 			.container
 				h1.title= title
-				h2.subtitle Type a mat into the box below and hit enter.
+				h2.subtitle Enter one or more materials required and then the system location to search from
 	section.section
 		.container
 			div#bloodhound
 				form.form(onsubmit="event.preventDefault()")
-					input.typeahead.input#inp(type="text" autocomplete="off" placeholder="Module")
+					input.typeahead.js-example-data-array#inp(type="text" autocomplete="off" placeholder="Module" multiple="multiple")
 					input.input.typeahead(type="text" placeholder="System")
 					input.button.is-primary#submit(type="submit")
-
+	.hidden#names= JSON.stringify(names)
 	script.
-		const names = ["Proto Radiolic Alloys", "Conductive Ceramics", "Proto Light Alloys"];
-		const states = new Bloodhound({
-			datumTokenizer: Bloodhound.tokenizers.whitespace,
-			queryTokenizer: Bloodhound.tokenizers.whitespace,
-			// `states` is an array of state names defined in "The Basics"
-			local: names
-		});
+		const names = JSON.parse(document.getElementById('names').innerText)
+		$(".js-example-data-array").select2({
+			data: names,
+			placeholder: "Enter as many mats as you want.",
+			maximumSelectionLength: 15
+		})
 
-		$('#bloodhound').find('#inp').typeahead({
-				hint: true,
-				highlight: true,
-				debug: true
-			},
-			{
-				name: 'stuff',
-				source: states
-			});
 		$('#submit').on('click', e => {
 			console.log(e)
-			window.location.href = `${window.location}result/${e.target.parentNode.children[0].children[1].value}/${e.target.parentNode.children[1].value}`
+			let mats = e.target.form.children[0].value
+			window.location.href = `${window.location}result/${e.target.form.children[0].value}/${e.target.form.children[2].value}`
 		});
