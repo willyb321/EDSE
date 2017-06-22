@@ -1,114 +1,114 @@
-Material,USS Location,USS Type,SysState,SysGovernment,SysAllegiance,SysPopulation,MatRarity,MatType,InaLocation,Confirmed_YN,Include_YN
-Basic Conductors,Deep Space,HGE (High Grade Emissions),Any,Any,Independent,High,Very common,Manufactured,Ship salvage (Transport ships),,Yes
-Biotech Conductors,Shipping Lanes,EE (Encoded Emissions),Boom,Anarchy,Federation,Medium,Very rare,Manufactured,Mission reward,,No
-Chemical Distillery,Deep Space,CA (Combat Aftermath),Retreat,Any,Empire,Low,Standard,Manufactured,"Ship salvage (Transport ships), USS",,Yes
-Chemical Manipulators,,_,,,,,Rare,Manufactured,"Ship salvage (Transport ships), Surface POI, USS (Convoy dispersal pattern)",,Yes
-Chemical Processors,,_,,,,,Common,Manufactured,"Ship salvage (Transport ships), USS, Mission reward",,Yes
-Chemical Storage Units,,_,,,,,Very common,Manufactured,Ship salvage (Transport ships),,No
-Compact Composites,,_,,,,,Very common,Manufactured,"USS, Surface POI",,Yes
-Compound Shielding,,_,,,,,Rare,Manufactured,"Ship salvage (Combat ships), USS (Encoded emissions), Mission reward",,Yes
-Conductive Ceramics,,_,,,,,Standard,Manufactured,"Ship salvage (Transport ships), USS (Degraded emissions/Anarchy)",,Yes
-Conductive Components,,_,,,,,Common,Manufactured,"Ship salvage (Transport ships), USS (Degraded emissions/Anarchy)",,Yes
-Conductive Polymers,,_,,,,,Rare,Manufactured,"Ship salvage (Transport ships), Surface POI, Mission reward",,No
-Configurable Components,,_,,,,,Rare,Manufactured,"Ship salvage (Transport ships), USS (Combat aftermath), USS (Encoded emissions)",,Yes
-Core Dynamics Composites,,_,,,,,Very rare,Manufactured,"Ship salvage (Combat ships), USS (High grade emissions)",,Yes
-Crystal Shards,,_,,,,,Very common,Manufactured,"Ship salvage (Combat ships), Surface POI",,No
-Electrochemical Arrays,,_,,,,,Standard,Manufactured,"Ship salvage (Military & authority ships), USS (Degraded emissions/Anarchy)",,Yes
-Exquisite Focus Crystals,,_,,,,,Very rare,Manufactured,Mission reward,,No
-Filament Composites,,_,,,,,Common,Manufactured,"Ship salvage (Military & authority ships), USS",,Yes
-Flawed Focus Crystals,,_,,,,,Common,Manufactured,"Ship salvage (Combat ships), USS (Combat aftermath)",,Yes
-Focus Crystals,,_,,,,,Standard,Manufactured,"Ship salvage (Combat ships), USS",,Yes
-Galvanising Alloys,,_,,,,,Common,Manufactured,"Ship salvage (Combat ships), USS, Mission reward",,Yes
-Grid Resistors,,_,,,,,Very common,Manufactured,"Ship salvage (Military & authority ships), USS, Mission reward",,Yes
-Heat Conduction Wiring,,_,,,,,Very common,Manufactured,"Ship salvage (Transport ships), USS, Mission reward",,Yes
-Heat Dispersion Plate,,_,,,,,Common,Manufactured,"Ship salvage (Transport ships), USS, Mission reward",,Yes
-Heat Exchangers,,_,,,,,Standard,Manufactured,"Ship salvage (Transport ships), USS (Degraded emissions/Anarchy)",,Yes
-Heat Resistant Ceramics,,_,,,,,Common,Manufactured,Ship salvage (Transport ships),,No
-Heat Vanes,,_,,,,,Rare,Manufactured,"Ship salvage (Transport ships), USS, Mission reward",,Yes
-High Density Composites,,_,,,,,Standard,Manufactured,"Ship salvage (Military & authority ships), USS",,Yes
-Hybrid Capacitors,,_,,,,,Common,Manufactured,"Ship salvage (Military & authority ships), USS, Mission reward",,Yes
-Imperial Shielding,,_,,,,,Very rare,Manufactured,"USS (High grade emissions), Mission reward",,Yes
-Improvised Components,,_,,,,,Very rare,Manufactured,"USS (High grade emissions), Mission reward",,Yes
-Mechanical Components,,_,,,,,Standard,Manufactured,"Ship salvage (Transport ships), USS (Combat aftermath)",,Yes
-Mechanical Equipment,,_,,,,,Common,Manufactured,"Ship salvage (Transport ships), USS",,Yes
-Mechanical Scrap,,_,,,,,Very common,Manufactured,"Ship salvage (Transport ships), USS, Mission reward",,Yes
-Military Grade Alloys,,_,,,,,Very rare,Manufactured,"USS (High grade emissions), Mission reward",,Yes
-Military Supercapacitors,,_,,,,,Very rare,Manufactured,"USS (High grade emissions), Mission reward",,Yes
-Pharmaceutical Isolators,,_,,,,,Very rare,Manufactured,"Mission reward, USS (High grade emissions)",,Yes
-Phase Alloys,,_,,,,,Standard,Manufactured,"Ship salvage (Combat ships), USS",,Yes
-Polymer Capacitors,,_,,,,,Rare,Manufactured,"Ship salvage (Military & authority ships), USS (Convoy dispersal pattern), Mission reward",,Yes
-Precipitated Alloys,,_,,,,,Standard,Manufactured,"Ship salvage (Military & authority ships), Mission reward",,No
-Proprietary Composites,,_,,,,,Rare,Manufactured,"USS (Encoded emissions), Mission reward",,Yes
-Proto Heat Radiators,,_,,,,,Very rare,Manufactured,"USS (High grade emissions), Mission reward",,Yes
-Proto Light Alloys,,_,,,,,Rare,Manufactured,"USS (High grade emissions), Mission reward",,Yes
-Proto Radiolic Alloys,,_,,,,,Very rare,Manufactured,USS (High grade emissions),,Yes
-Refined Focus Crystals,,_,,,,,Rare,Manufactured,"Mission reward, USS (Weapons fire)",,Yes
-Salvaged Alloys,,_,,,,,Very common,Manufactured,"Ship salvage (Combat ships), USS (Combat aftermath)",,Yes
-Shield Emitters,,_,,,,,Common,Manufactured,"Ship salvage (Combat ships), USS",,Yes
-Shielding Sensors,,_,,,,,Standard,Manufactured,"Ship salvage (Combat ships), USS, Mission reward",,Yes
-Tempered Alloys,,_,,,,,Very common,Manufactured,Ship salvage (Combat ships),,No
-Thermic Alloys,,_,,,,,Rare,Manufactured,"Ship salvage (Combat ships), Mission reward",,No
-Unknown Fragment,,_,,,,,Very rare,Manufactured,"Destroyed Unknown artefact, USS (Anomaly)",,Yes
-Worn Shield Emitters,,_,,,,,Very common,Manufactured,"Ship salvage (Combat ships), USS",,Yes
-Aberrant Shield Pattern Analysis,,_,,,,,Rare,Data,"Ship scanning (Combat ships), Mission reward",,No
-Abnormal Compact Emission Data,,_,,,,,Very rare,Data,"USS (Encoded emissions), Ship scanning (Combat ships), Mission reward",,No
-Adaptive Encryptors Capture,,_,,,,,Very rare,Data,"Surface POI, USS",,No
-Anomalous Bulk Scan Data,,_,,,,,Very common,Data,"Ship scanning (Transport ships), Mission reward",,No
-Anomalous FSD Telemetry,,_,,,,,Common,Data,"High wake scanning, Mission reward",,No
-Atypical Disrupted Wake Echoes,,_,,,,,Very common,Data,"High wake scanning, Mission reward",,No
-Atypical Encryption Archives,,_,,,,,Rare,Data,Surface POI,,No
-Classified Scan Databanks,,_,,,,,Standard,Data,"Ship scanning (Transport ships), Surface POI",,No
-Classified Scan Fragment,,_,,,,,Very rare,Data,"Surface data point, Mission reward, Ship scanning (Military & authority ships)",,No
-Cracked Industrial Firmware,,_,,,,,Standard,Data,"Surface data point, Mission reward",,No
-Datamined Wake Exceptions,,_,,,,,Very rare,Data,"High wake scanning, Mission reward, USS (Encoded emissions)",,No
-Decoded Emission Data,,_,,,,,Rare,Data,"Ship scanning (Combat ships), Mission reward",,No
-Distorted Shield Cycle Recordings,,_,,,,,Very common,Data,"Ship scanning (Transport ships), Mission reward",,No
-Divergent Scan Data,,_,,,,,Rare,Data,"Surface data point, Mission reward",,No
-Eccentric Hyperspace Trajectories,,_,,,,,Rare,Data,High wake scanning,,No
-Exceptional Scrambled Emission Data,,_,,,,,Very common,Data,"Ship scanning, USS, Mission reward",,No
-Inconsistent Shield Soak Analysis,,_,,,,,Common,Data,"Ship scanning (Transport ships), Mission reward",,No
-Irregular Emission Data,,_,,,,,Common,Data,"Mission reward, USS",,No
-Modified Consumer Firmware,,_,,,,,Common,Data,"Mission reward, USS, Surface data point",,No
-Modified Embedded Firmware,,_,,,,,Very rare,Data,Surface data point,,No
-Open Symmetric Keys,,_,,,,,Standard,Data,"Surface data point, USS, Mission reward",,No
-Pattern Alpha Obelisk Data,,_,,,,,Rare,Data,Ancient ruins,,No
-Pattern Beta Obelisk Data,,_,,,,,Rare,Data,Ancient ruins,,No
-Pattern Delta Obelisk Data,,_,,,,,Rare,Data,Ancient ruins,,No
-Pattern Epsilon Obelisk Data,,_,,,,,Rare,Data,Ancient ruins,,No
-Pattern Gamma Obelisk Data,,_,,,,,Rare,Data,Ancient ruins,,No
-Peculiar Shield Frequency Data,,_,,,,,Very rare,Data,"Ship scanning, Mission reward",,No
-Security Firmware Patch,,_,,,,,Rare,Data,"Surface data point, Mission reward",,No
-Specialised Legacy Firmware,,_,,,,,Very common,Data,"Mission reward, Surface data point, USS",,No
-Strange Wake Solutions,,_,,,,,Standard,Data,"High wake scanning, Mission reward",,No
-Tagged Encryption Codes,,_,,,,,Common,Data,"Surface data point, USS, Mission reward",,No
-Unexpected Emission Data,,_,,,,,Standard,Data,"Ship scanning (Combat ships), USS",,No
-Unidentified Scan Archives,,_,,,,,Common,Data,Ship scanning (Transport ships),,No
-Unknown Ship Signature,,_,,,,,Rare,Data,Unknown ship encounter,,No
-Unknown Wake Data,,_,,,,,Rare,Data,Unknown ship encounter,,No
-Untypical Shield Scans,,_,,,,,Standard,Data,Ship scanning (Combat ships),,No
-Unusual Encrypted Files,,_,,,,,Very common,Data,"Surface data point, USS, Mission reward",,No
-Antimony,,_,,,,,Very rare,Raw material,Surface prospecting,,No
-Arsenic,,_,,,,,Standard,Raw material,"Surface prospecting, Mining, Mission reward",,No
-Cadmium,,_,,,,,Rare,Raw material,"Surface prospecting, Mining",,No
-Carbon,,_,,,,,Very common,Raw material,"Surface prospecting, Mining, Mining (Ice rings)",,No
-Chromium,,_,,,,,Common,Raw material,"Surface prospecting, Mining (Ice rings)",,No
-Germanium,,_,,,,,Common,Raw material,"Surface prospecting, Mission reward",,No
-Iron,,_,,,,,Very common,Raw material,"Surface prospecting, Mining, Mining (Ice rings)",,No
-Manganese,,_,,,,,Common,Raw material,"Surface prospecting, Mission reward",,No
-Mercury,,_,,,,,Rare,Raw material,Surface prospecting,,No
-Molybdenum,,_,,,,,Rare,Raw material,"Surface prospecting, Mission reward",,No
-Nickel,,_,,,,,Very common,Raw material,"Surface prospecting, Mining, Mining (Ice rings)",,No
-Niobium,,_,,,,,Standard,Raw material,"Surface prospecting, Mission reward",,No
-Phosphorus,,_,,,,,Very common,Raw material,"Surface prospecting, Mining, Mining (Ice rings)",,No
-Polonium,,_,,,,,Very rare,Raw material,"Surface prospecting, Mission reward",,No
-Ruthenium,,_,,,,,Very rare,Raw material,Surface prospecting,,No
-Selenium,,_,,,,,Standard,Raw material,"Surface prospecting, Mission reward",,No
-Sulphur,,_,,,,,Very common,Raw material,"Surface prospecting, Mining, Mining (Ice rings)",,No
-Technetium,,_,,,,,Very rare,Raw material,Surface prospecting,,No
-Tellurium,,_,,,,,Very rare,Raw material,Surface prospecting,,No
-Tin,,_,,,,,Rare,Raw material,Surface prospecting,,No
-Tungsten,,_,,,,,Standard,Raw material,Surface prospecting,,No
-Vanadium,,_,,,,,Common,Raw material,"Surface prospecting, Mining (Ice rings)",,No
-Yttrium,,_,,,,,Rare,Raw material,Surface prospecting,,No
-Zinc,,_,,,,,Common,Raw material,Surface prospecting,,No
-Zirconium,,_,,,,,Standard,Raw material,"Surface prospecting, Mining",,No
+Material,USS Type,Ship Type,System State,System Government,System Allegiance,System Population,Locations,Material Rarity,Material Type,System,USS Location,Confirmed?
+Basic Conductors,~,TR,Any,~,Independent,High,Ship salvage (Transport ships),Very common,Manufactured,~,~,~
+Biotech Conductors,~,,Boom,~,Federation,Medium,Mission reward,Very rare,Manufactured,~,~,~
+Chemical Distillery,CA,TR,Retreat,~,Empire,Low,"Ship salvage (Transport ships), USS",Standard,Manufactured,~,~,~
+Chemical Manipulators,CDP,TR,~,~,~,~,"Ship salvage (Transport ships), Surface POI, USS (Convoy dispersal pattern)",Rare,Manufactured,~,~,~
+Chemical Processors,~,,~,~,~,~,"Ship salvage (Transport ships), USS, Mission reward",Common,Manufactured,~,~,~
+Chemical Storage Units,~,,~,~,~,~,Ship salvage (Transport ships),Very common,Manufactured,~,~,~
+Compact Composites,~,,~,~,~,~,"USS, Surface POI",Very common,Manufactured,~,~,~
+Compound Shielding,EE,,~,~,~,~,"Ship salvage (Combat ships), USS (Encoded emissions), Mission reward",Rare,Manufactured,~,~,~
+Conductive Ceramics,DE,,~,Anarchy,~,~,"Ship salvage (Transport ships), USS (Degraded emissions/Anarchy)",Standard,Manufactured,~,~,~
+Conductive Components,DE,,~,Anarchy,~,~,"Ship salvage (Transport ships), USS (Degraded emissions/Anarchy)",Common,Manufactured,~,~,~
+Conductive Polymers,~,,~,~,~,~,"Ship salvage (Transport ships), Surface POI, Mission reward",Rare,Manufactured,~,~,~
+Configurable Components,"CA, EE",,~,~,~,~,"Ship salvage (Transport ships), USS (Combat aftermath), USS (Encoded emissions)",Rare,Manufactured,~,~,~
+Core Dynamics Composites,HGE,,~,~,~,~,"Ship salvage (Combat ships), USS (High grade emissions)",Very rare,Manufactured,~,~,~
+Crystal Shards,~,,~,~,~,~,"Ship salvage (Combat ships), Surface POI",Very common,Manufactured,~,~,~
+Electrochemical Arrays,DE,,~,Anarchy,~,~,"Ship salvage (Military & authority ships), USS (Degraded emissions/Anarchy)",Standard,Manufactured,~,~,~
+Exquisite Focus Crystals,~,,~,~,~,~,Mission reward,Very rare,Manufactured,~,~,~
+Filament Composites,~,,~,~,~,~,"Ship salvage (Military & authority ships), USS",Common,Manufactured,~,~,~
+Flawed Focus Crystals,CA,CO,~,~,~,~,"Ship salvage (Combat ships), USS (Combat aftermath)",Common,Manufactured,~,~,~
+Focus Crystals,~,,~,~,~,~,"Ship salvage (Combat ships), USS",Standard,Manufactured,~,~,~
+Galvanising Alloys,~,,~,~,~,~,"Ship salvage (Combat ships), USS, Mission reward",Common,Manufactured,~,~,~
+Grid Resistors,~,,~,~,~,~,"Ship salvage (Military & authority ships), USS, Mission reward",Very common,Manufactured,~,~,~
+Heat Conduction Wiring,~,,~,~,~,~,"Ship salvage (Transport ships), USS, Mission reward",Very common,Manufactured,~,~,~
+Heat Dispersion Plate,~,,~,~,~,~,"Ship salvage (Transport ships), USS, Mission reward",Common,Manufactured,~,~,~
+Heat Exchangers,DE,,~,Anarchy,~,~,"Ship salvage (Transport ships), USS (Degraded emissions/Anarchy)",Standard,Manufactured,~,~,~
+Heat Resistant Ceramics,~,,~,~,~,~,Ship salvage (Transport ships),Common,Manufactured,~,~,~
+Heat Vanes,~,,~,~,~,~,"Ship salvage (Transport ships), USS, Mission reward",Rare,Manufactured,~,~,~
+High Density Composites,~,MA,~,~,~,~,"Ship salvage (Military & authority ships), USS",Standard,Manufactured,~,~,~
+Hybrid Capacitors,~,,~,~,~,~,"Ship salvage (Military & authority ships), USS, Mission reward",Common,Manufactured,~,~,~
+Imperial Shielding,HGE,,~,~,~,~,"USS (High grade emissions), Mission reward",Very rare,Manufactured,~,~,~
+Improvised Components,HGE,,~,~,~,~,"USS (High grade emissions), Mission reward",Very rare,Manufactured,~,~,~
+Mechanical Components,CA,,~,~,~,~,"Ship salvage (Transport ships), USS (Combat aftermath)",Standard,Manufactured,~,~,~
+Mechanical Equipment,~,,~,~,~,~,"Ship salvage (Transport ships), USS",Common,Manufactured,~,~,~
+Mechanical Scrap,~,,~,~,~,~,"Ship salvage (Transport ships), USS, Mission reward",Very common,Manufactured,~,~,~
+Military Grade Alloys,HGE,,~,~,~,~,"USS (High grade emissions), Mission reward",Very rare,Manufactured,~,~,~
+Military Supercapacitors,HGE,,~,~,~,~,"USS (High grade emissions), Mission reward",Very rare,Manufactured,~,~,~
+Pharmaceutical Isolators,HGE,,~,~,~,~,"Mission reward, USS (High grade emissions)",Very rare,Manufactured,~,~,~
+Phase Alloys,~,,~,~,~,~,"Ship salvage (Combat ships), USS",Standard,Manufactured,~,~,~
+Polymer Capacitors,CDP,,~,~,~,~,"Ship salvage (Military & authority ships), USS (Convoy dispersal pattern), Mission reward",Rare,Manufactured,~,~,~
+Precipitated Alloys,~,,~,~,~,~,"Ship salvage (Military & authority ships), Mission reward",Standard,Manufactured,~,~,~
+Proprietary Composites,EE,,~,~,~,~,"USS (Encoded emissions), Mission reward",Rare,Manufactured,~,~,~
+Proto Heat Radiators,HGE,,~,~,~,~,"USS (High grade emissions), Mission reward",Very rare,Manufactured,~,~,~
+Proto Light Alloys,HGE,,~,~,~,~,"USS (High grade emissions), Mission reward",Rare,Manufactured,~,~,~
+Proto Radiolic Alloys,HGE,,~,~,~,~,USS (High grade emissions),Very rare,Manufactured,~,~,~
+Refined Focus Crystals,~,,~,~,~,~,"Mission reward, USS (Weapons fire)",Rare,Manufactured,~,~,~
+Salvaged Alloys,CA,,~,~,~,~,"Ship salvage (Combat ships), USS (Combat aftermath)",Very common,Manufactured,~,~,~
+Shield Emitters,~,,~,~,~,~,"Ship salvage (Combat ships), USS",Common,Manufactured,~,~,~
+Shielding Sensors,~,,~,~,~,~,"Ship salvage (Combat ships), USS, Mission reward",Standard,Manufactured,~,~,~
+Tempered Alloys,~,,~,~,~,~,Ship salvage (Combat ships),Very common,Manufactured,~,~,~
+Thermic Alloys,~,,~,~,~,~,"Ship salvage (Combat ships), Mission reward",Rare,Manufactured,~,~,~
+Unknown Fragment,AN,,~,~,~,~,"Destroyed Unknown artefact, USS (Anomaly)",Very rare,Manufactured,~,~,~
+Worn Shield Emitters,~,,~,~,~,~,"Ship salvage (Combat ships), USS",Very common,Manufactured,~,~,~
+Aberrant Shield Pattern Analysis,~,,~,~,~,~,"Ship scanning (Combat ships), Mission reward",Rare,Data,~,~,~
+Abnormal Compact Emission Data,EE,,~,~,~,~,"USS (Encoded emissions), Ship scanning (Combat ships), Mission reward",Very rare,Data,~,~,~
+Adaptive Encryptors Capture,~,,~,~,~,~,"Surface POI, USS",Very rare,Data,~,~,~
+Anomalous Bulk Scan Data,~,,~,~,~,~,"Ship scanning (Transport ships), Mission reward",Very common,Data,~,~,~
+Anomalous FSD Telemetry,~,,~,~,~,~,"High wake scanning, Mission reward",Common,Data,~,~,~
+Atypical Disrupted Wake Echoes,~,,~,~,~,~,"High wake scanning, Mission reward",Very common,Data,~,~,~
+Atypical Encryption Archives,~,,~,~,~,~,Surface POI,Rare,Data,~,~,~
+Classified Scan Databanks,~,,~,~,~,~,"Ship scanning (Transport ships), Surface POI",Standard,Data,~,~,~
+Classified Scan Fragment,~,,~,~,~,~,"Surface data point, Mission reward, Ship scanning (Military & authority ships)",Very rare,Data,~,~,~
+Cracked Industrial Firmware,~,,~,~,~,~,"Surface data point, Mission reward",Standard,Data,~,~,~
+Datamined Wake Exceptions,~,,~,~,~,~,"High wake scanning, Mission reward, USS (Encoded emissions)",Very rare,Data,~,~,~
+Decoded Emission Data,~,,~,~,~,~,"Ship scanning (Combat ships), Mission reward",Rare,Data,~,~,~
+Distorted Shield Cycle Recordings,~,,~,~,~,~,"Ship scanning (Transport ships), Mission reward",Very common,Data,~,~,~
+Divergent Scan Data,~,,~,~,~,~,"Surface data point, Mission reward",Rare,Data,~,~,~
+Eccentric Hyperspace Trajectories,~,,~,~,~,~,High wake scanning,Rare,Data,~,~,~
+Exceptional Scrambled Emission Data,~,,~,~,~,~,"Ship scanning, USS, Mission reward",Very common,Data,~,~,~
+Inconsistent Shield Soak Analysis,~,,~,~,~,~,"Ship scanning (Transport ships), Mission reward",Common,Data,~,~,~
+Irregular Emission Data,~,,~,~,~,~,"Mission reward, USS",Common,Data,~,~,~
+Modified Consumer Firmware,~,,~,~,~,~,"Mission reward, USS, Surface data point",Common,Data,~,~,~
+Modified Embedded Firmware,~,,~,~,~,~,Surface data point,Very rare,Data,~,~,~
+Open Symmetric Keys,~,,~,~,~,~,"Surface data point, USS, Mission reward",Standard,Data,~,~,~
+Pattern Alpha Obelisk Data,~,,~,~,~,~,Ancient ruins,Rare,Data,~,~,~
+Pattern Beta Obelisk Data,~,,~,~,~,~,Ancient ruins,Rare,Data,~,~,~
+Pattern Delta Obelisk Data,~,,~,~,~,~,Ancient ruins,Rare,Data,~,~,~
+Pattern Epsilon Obelisk Data,~,,~,~,~,~,Ancient ruins,Rare,Data,~,~,~
+Pattern Gamma Obelisk Data,~,,~,~,~,~,Ancient ruins,Rare,Data,~,~,~
+Peculiar Shield Frequency Data,~,,~,~,~,~,"Ship scanning, Mission reward",Very rare,Data,~,~,~
+Security Firmware Patch,~,,~,~,~,~,"Surface data point, Mission reward",Rare,Data,~,~,~
+Specialised Legacy Firmware,~,,~,~,~,~,"Mission reward, Surface data point, USS",Very common,Data,~,~,~
+Strange Wake Solutions,~,,~,~,~,~,"High wake scanning, Mission reward",Standard,Data,~,~,~
+Tagged Encryption Codes,~,,~,~,~,~,"Surface data point, USS, Mission reward",Common,Data,~,~,~
+Unexpected Emission Data,~,,~,~,~,~,"Ship scanning (Combat ships), USS",Standard,Data,~,~,~
+Unidentified Scan Archives,~,,~,~,~,~,Ship scanning (Transport ships),Common,Data,~,~,~
+Unknown Ship Signature,~,,~,~,~,~,Unknown ship encounter,Rare,Data,~,~,~
+Unknown Wake Data,~,,~,~,~,~,Unknown ship encounter,Rare,Data,~,~,~
+Untypical Shield Scans,~,,~,~,~,~,Ship scanning (Combat ships),Standard,Data,~,~,~
+Unusual Encrypted Files,~,,~,~,~,~,"Surface data point, USS, Mission reward",Very common,Data,~,~,~
+Antimony,~,,~,~,~,~,Surface prospecting,Very rare,Raw material,~,~,~
+Arsenic,~,,~,~,~,~,"Surface prospecting, Mining, Mission reward",Standard,Raw material,~,~,~
+Cadmium,~,,~,~,~,~,"Surface prospecting, Mining",Rare,Raw material,~,~,~
+Carbon,~,,~,~,~,~,"Surface prospecting, Mining, Mining (Ice rings)",Very common,Raw material,~,~,~
+Chromium,~,,~,~,~,~,"Surface prospecting, Mining (Ice rings)",Common,Raw material,~,~,~
+Germanium,~,,~,~,~,~,"Surface prospecting, Mission reward",Common,Raw material,~,~,~
+Iron,~,,~,~,~,~,"Surface prospecting, Mining, Mining (Ice rings)",Very common,Raw material,~,~,~
+Manganese,~,,~,~,~,~,"Surface prospecting, Mission reward",Common,Raw material,~,~,~
+Mercury,~,,~,~,~,~,Surface prospecting,Rare,Raw material,~,~,~
+Molybdenum,~,,~,~,~,~,"Surface prospecting, Mission reward",Rare,Raw material,~,~,~
+Nickel,~,,~,~,~,~,"Surface prospecting, Mining, Mining (Ice rings)",Very common,Raw material,~,~,~
+Niobium,~,,~,~,~,~,"Surface prospecting, Mission reward",Standard,Raw material,~,~,~
+Phosphorus,~,,~,~,~,~,"Surface prospecting, Mining, Mining (Ice rings)",Very common,Raw material,~,~,~
+Polonium,~,,~,~,~,~,"Surface prospecting, Mission reward",Very rare,Raw material,~,~,~
+Ruthenium,~,,~,~,~,~,Surface prospecting,Very rare,Raw material,~,~,~
+Selenium,~,,~,~,~,~,"Surface prospecting, Mission reward",Standard,Raw material,~,~,~
+Sulphur,~,,~,~,~,~,"Surface prospecting, Mining, Mining (Ice rings)",Very common,Raw material,~,~,~
+Technetium,~,,~,~,~,~,Surface prospecting,Very rare,Raw material,~,~,~
+Tellurium,~,,~,~,~,~,Surface prospecting,Very rare,Raw material,~,~,~
+Tin,~,,~,~,~,~,Surface prospecting,Rare,Raw material,~,~,~
+Tungsten,~,,~,~,~,~,Surface prospecting,Standard,Raw material,~,~,~
+Vanadium,~,,~,~,~,~,"Surface prospecting, Mining (Ice rings)",Common,Raw material,~,~,~
+Yttrium,~,,~,~,~,~,Surface prospecting,Rare,Raw material,~,~,~
+Zinc,~,,~,~,~,~,Surface prospecting,Common,Raw material,~,~,~
+Zirconium,~,,~,~,~,~,"Surface prospecting, Mining",Standard,Raw material,~,~,~

@@ -1,23 +1,12 @@
-const names = ["Proto Radiolic Alloys", "Conductive Ceramics", "Proto Light Alloys"];
-const states = new Bloodhound({
-	datumTokenizer: Bloodhound.tokenizers.whitespace,
-	queryTokenizer: Bloodhound.tokenizers.whitespace,
-	// `states` is an array of state names defined in "The Basics"
-	local: names
-});
+const names = JSON.parse(document.getElementById('names').innerText)
+$("#inp").select2({
+	data: names,
+	placeholder: "Enter as many mats as you want. (Up to 15)",
+	maximumSelectionLength: 15
+})
 
-$('#bloodhound .typeahead').typeahead({
-		hint: true,
-		highlight: true,
-		debug: true
-	},
-	{
-		name: 'stuff',
-		source: states
-	});
-$('#inp').on('keypress', e => {
+$('#submit').on('click', e => {
 	console.log(e)
-	if (e.keyCode === 13) {
-		window.location.href = `${window.location}result/${e.target.value}`
-	}
+	let mats = e.target.form.children[0].value
+	window.location.href = `${window.location}result/${e.target.form.children[0].value}/${e.target.form.children[2].value}`
 });

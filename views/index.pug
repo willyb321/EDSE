@@ -12,20 +12,8 @@ block content
 		.container
 			div#bloodhound
 				form.form(onsubmit="event.preventDefault()")
-					input.typeahead.js-example-data-array#inp(type="text" autocomplete="off" placeholder="Module" multiple="multiple")
-					input.input.typeahead(type="text" placeholder="System")
+					input.input#inp(type="text" autocomplete="off" placeholder="Material" multiple="multiple")
+					input.input(type="text" autocomplete="off" placeholder="System (Optional)")
 					input.button.is-primary#submit(type="submit")
 	.hidden#names= JSON.stringify(names)
-	script.
-		const names = JSON.parse(document.getElementById('names').innerText)
-		$(".js-example-data-array").select2({
-			data: names,
-			placeholder: "Enter as many mats as you want.",
-			maximumSelectionLength: 15
-		})
-
-		$('#submit').on('click', e => {
-			console.log(e)
-			let mats = e.target.form.children[0].value
-			window.location.href = `${window.location}result/${e.target.form.children[0].value}/${e.target.form.children[2].value}`
-		});
+	script(src="/javascripts/search.js")
