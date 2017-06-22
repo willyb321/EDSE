@@ -1,0 +1,40 @@
+extends layout
+
+block content
+	script(src="/javascripts/typeahead.bundle.min.js")
+	//script(src="/javascripts/search.js")
+	section.hero.is-primary.is-bold
+		.hero-body
+			.container
+				h1.title= title
+				h2.subtitle Type a mat into the box below and hit enter.
+	section.section
+		.container
+			div#bloodhound
+				form.form(onsubmit="event.preventDefault()")
+					input.typeahead.input#inp(type="text" autocomplete="off" placeholder="Module")
+					input.input.typeahead(type="text" placeholder="System")
+					input.button.is-primary#submit(type="submit")
+
+	script.
+		const names = ["Proto Radiolic Alloys", "Conductive Ceramics", "Proto Light Alloys"];
+		const states = new Bloodhound({
+			datumTokenizer: Bloodhound.tokenizers.whitespace,
+			queryTokenizer: Bloodhound.tokenizers.whitespace,
+			// `states` is an array of state names defined in "The Basics"
+			local: names
+		});
+
+		$('#bloodhound').find('#inp').typeahead({
+				hint: true,
+				highlight: true,
+				debug: true
+			},
+			{
+				name: 'stuff',
+				source: states
+			});
+		$('#submit').on('click', e => {
+			console.log(e)
+			window.location.href = `${window.location}result/${e.target.parentNode.children[0].children[1].value}/${e.target.parentNode.children[1].value}`
+		});

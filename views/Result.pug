@@ -1,0 +1,20 @@
+extends layout
+block content
+	section.hero.is-primary.is-bold
+		.hero-body
+			.container
+				h1.title= title
+				a.subtitle.button.is-info(href="/") Go back
+	if result[1]
+		.container.is-fluid
+			table.table.is-striped.is-bordered
+				tr
+					each val in result[0]
+						th= val
+				for obj in result[1]
+					tr
+						each val in obj
+							td= val
+	else
+		h1.title No Results
+		a(href="/").subtitle Go back?

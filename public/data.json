@@ -1,0 +1,29 @@
+[
+	{
+		"Material": "Proto Radiolic Alloys",
+		"USS Location": "tbd",
+		"USS Type": "HGE (High Grade Emissions)",
+		"SysState": "Any",
+		"SysGovernment": "Any",
+		"SysAllegiance": "Independent",
+		"SysPopulation": "High"
+	},
+	{
+		"Material": "Conductive Ceramics",
+		"USS Location": "FA",
+		"USS Type": "EE (Encoded Emissions)",
+		"SysState": "Boom",
+		"SysGovernment": "Anarchy",
+		"SysAllegiance": "Federation",
+		"SysPopulation": "Medium"
+	},
+	{
+		"Material": "Proto Light Alloys",
+		"USS Location": "MILF",
+		"USS Type": "CA (Combat Aftermath)",
+		"SysState": "Retreat",
+		"SysGovernment": "Any",
+		"SysAllegiance": "Empire",
+		"SysPopulation": "Low"
+	}
+]
