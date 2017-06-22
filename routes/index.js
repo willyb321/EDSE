@@ -5,7 +5,7 @@ const data = require('../public/data.json');
 let names = Object.keys(data[0]);
 let vals = [];
 _.each(data, elem => {
-	if (elem.Material) {
+	if (elem.Material && elem.Included !== "") {
 		vals.push(elem.Material)
 	}
 });
