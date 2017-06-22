@@ -7,6 +7,7 @@ $("#inp").select2({
 
 $('#submit').on('click', e => {
 	console.log(e)
-	let mats = e.target.form.children[0].value
-	window.location.href = `${window.location}result/${e.target.form.children[0].value}/${e.target.form.children[2].value}`
+	let mats = e.target.form.children[0].value;
+	let system = e.target.form.children[2].value;
+	window.location.href = `${window.location}result/${mats}/${system}`
 });
