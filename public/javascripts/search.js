@@ -6,8 +6,8 @@ $('#inp').select2({
 });
 
 $('#submit').on('click', e => {
-	console.log(e);
 	const mats = _.uniq(e.target.form.children[0].value.split(','));
+	mats.splice(0, 1);
 	const system = e.target.form.children[2].value;
 	window.location.href = `${window.location}result/${mats}/${system}`;
 });
