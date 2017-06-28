@@ -10,17 +10,35 @@ const names = Object.keys(data[0]);
 names.splice(_.indexOf(names, 'Included'), 1)
 const humanNames = {
 	'Ship Type': [
-			{TR: 'Transport'},
-			{CO: 'Combat'},
-			{MA: 'Military and Authority'}
+			{
+				TR: 'Transport'
+			},
+			{
+				CO: 'Combat'
+			},
+			{
+				MA: 'Military and Authority'
+			}
 	],
 	'USS Type': [
-			{AN: 'Anomaly'},
-			{CA: 'Combat Aftermath'},
-			{CDP: 'Convoy Dispersal Pattern'},
-			{DE: 'Degraded Emissions'},
-			{EE: 'Encoded Emissions'},
-			{HGE: 'High Grade Emissions'}
+			{
+				AN: 'Anomaly'
+			},
+			{
+				CA: 'Combat Aftermath'
+			},
+			{
+				CDP: 'Convoy Dispersal Pattern'
+			},
+			{
+				DE: 'Degraded Emissions'
+			},
+			{
+				EE: 'Encoded Emissions'
+			},
+			{
+				HGE: 'High Grade Emissions'
+			}
 	]
 };
 

@@ -10,7 +10,7 @@ const index = require('./routes/index');
 const result = require('./routes/result');
 
 const app = express();
-
+const oneDay = 86400000;
 // View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -27,7 +27,10 @@ app.use(sassMiddleware({
 	indentedSyntax: true, // True = .sass and false = .scss
 	sourceMap: true
 }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), {
+	magage: oneDay,
+	etag: true
+}));
 
 app.use('/', index);
 app.use('/result', result);
