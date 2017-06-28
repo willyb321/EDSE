@@ -26,6 +26,7 @@ const humanNames = {
 
 router.get('/:mat/:system?', async (req, res, next) => {
 	const mats = req.params.mat.split(',');
+	mats.splice(0, 1);
 	const vals = [];
 	_.each(data, (elem, ind) => {
 		_.each(mats, mat => {
@@ -34,12 +35,9 @@ router.get('/:mat/:system?', async (req, res, next) => {
 			}
 		});
 	});
-	const collection = collect(vals);
 	const valsMapped = _.each(vals, (item, index, vals) => {
 		const keysShip = item['Ship Type'].split(',');
 		const keysUSS = item['USS Type'].split(',');
-		// Console.log(keysShip);
-		// console.log(keysUSS);
 		const usskeys = [];
 		const shipkeys = [];
 		_.each(keysShip, (elem, ind) => {
@@ -82,13 +80,7 @@ router.get('/:mat/:system?', async (req, res, next) => {
 	if (!_.isEmpty(vals)) {
 		datas[1] = valsMapped;
 	}
-	// request(`http://elitebgs.kodeblox.com/api/populatedsystems/name/${req.params.system}/statename/`, (error, response, body) => {
-		// console.log('error:', error); // Print the error if one occurred
-		// console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-		// console.log('body:', body);
-		// body = JSON.parse(body);
-	// });
-	res.render('Result', {title: 'EDSE', result: datas});
+	res.render('Result', {title: 'EDSE', result: datas, meta: `EDSE - ${mats.join(', ')}`});
 });
 
 module.exports = router;
