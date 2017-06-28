@@ -7,7 +7,7 @@ const _ = require('underscore');
 const data = require('../public/data.json');
 
 const names = Object.keys(data[0]);
-
+names.splice(_.indexOf(names, 'Included'), 1)
 const humanNames = {
 	'Ship Type': [
 			{TR: 'Transport'},
@@ -29,6 +29,7 @@ router.get('/:mat/:system?', async (req, res, next) => {
 	mats.splice(0, 1);
 	const vals = [];
 	_.each(data, (elem, ind) => {
+		delete elem.Included
 		_.each(mats, mat => {
 			if (elem.Material === mat) {
 				vals.push(elem);
