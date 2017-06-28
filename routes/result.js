@@ -1,59 +1,83 @@
 const express = require('express');
+
 const router = express.Router();
 const request = require('request');
 const collect = require('collect.js');
 const _ = require('underscore');
 const data = require('../public/data.json');
-let names = Object.keys(data[0]);
+
+const names = Object.keys(data[0]);
 
 const humanNames = {
-		"Ship Type": [
-			{TR: "Transport"},
-			{CO: "Combat"},
-			{MA: "Military and Authority"}
-		],
-		"USS Type": [
-			{AN: "Anomaly"},
-			{CA: "Combat Aftermath"},
-			{CDP: "Convoy Dispersal Pattern"},
-			{DE: "Degraded Emissions"},
-			{EE: "Encoded Emissions"},
-			{HGE: "High Grade Emissions"}
-		]
-}
+	'Ship Type': [
+			{TR: 'Transport'},
+			{CO: 'Combat'},
+			{MA: 'Military and Authority'}
+	],
+	'USS Type': [
+			{AN: 'Anomaly'},
+			{CA: 'Combat Aftermath'},
+			{CDP: 'Convoy Dispersal Pattern'},
+			{DE: 'Degraded Emissions'},
+			{EE: 'Encoded Emissions'},
+			{HGE: 'High Grade Emissions'}
+	]
+};
 
-router.get('/:mat/:system?', async function(req, res, next) {
-	let mats = req.params.mat.split(',');
-	let vals = [];
+router.get('/:mat/:system?', async (req, res, next) => {
+	const mats = req.params.mat.split(',');
+	const vals = [];
 	_.each(data, (elem, ind) => {
 		_.each(mats, mat => {
 			if (elem.Material === mat) {
-				vals.push(elem)
+				vals.push(elem);
 			}
-		})
+		});
 	});
 	const collection = collect(vals);
 	const valsMapped = _.each(vals, (item, index, vals) => {
-		let keysShip = item["Ship Type"].split(',');
-		let keysUSS = item["USS Type"].split(',')
-		// console.log(keysShip);
+		const keysShip = item['Ship Type'].split(',');
+		const keysUSS = item['USS Type'].split(',');
+		// Console.log(keysShip);
 		// console.log(keysUSS);
-		let usskeys = [];
-		_.each(keysUSS, (elem, ind) => {
-			elem = elem.trim()
+		const usskeys = [];
+		const shipkeys = [];
+		_.each(keysShip, (elem, ind) => {
+			elem = elem.trim();
 			try {
-				if (!_.contains(humanNames["USS Type"], vals[index]["USS Type"])) {
-					const newVal = humanNames["USS Type"][_.findKey(humanNames["USS Type"], elem)][elem]
-					usskeys.push(newVal);
-					console.log("USS newVal: " + newVal)
+				if (!_.contains(humanNames['Ship Type'], vals[index]['Ship Type']) && _.findKey(humanNames['Ship Type'], elem)) {
+					const newVal = humanNames['Ship Type'][_.findKey(humanNames['Ship Type'], elem)][elem];
+					shipkeys.push(newVal);
+					console.log('Ship newVal: ' + newVal);
+				} else {
+					const newVal = elem;
+					shipkeys.push(newVal);
+					console.log('Ship newVal: ' + newVal);
 				}
 			} catch (err) {
 				console.log(err);
 			}
 		});
-		vals[index]["USS Type"] = usskeys.join(', ')
-	})
-	let datas = [];
+		_.each(keysUSS, (elem, ind) => {
+			elem = elem.trim();
+			try {
+				if (!_.contains(humanNames['USS Type'], vals[index]['USS Type']) && _.findKey(humanNames['USS Type'], elem)) {
+					const newVal = humanNames['USS Type'][_.findKey(humanNames['USS Type'], elem)][elem];
+					usskeys.push(newVal);
+					console.log('USS newVal: ' + newVal);
+				} else {
+					const newVal = elem;
+					usskeys.push(newVal);
+					console.log('USS newVal: ' + newVal);
+				}
+			} catch (err) {
+				console.log(err);
+			}
+		});
+		vals[index]['USS Type'] = usskeys.join(', ');
+		vals[index]['Ship Type'] = shipkeys.join(', ');
+	});
+	const datas = [];
 	datas[0] = names;
 	if (!_.isEmpty(vals)) {
 		datas[1] = valsMapped;
@@ -64,7 +88,7 @@ router.get('/:mat/:system?', async function(req, res, next) {
 		// console.log('body:', body);
 		// body = JSON.parse(body);
 	// });
-	res.render('Result', { title: 'EDSE', result: datas});
+	res.render('Result', {title: 'EDSE', result: datas});
 });
 
 module.exports = router;
