@@ -25,7 +25,8 @@ const humanNames = {
 };
 
 router.get('/:mat/:system?', async (req, res, next) => {
-	const mats = req.params.mat.split(',');
+	let mats = req.params.mat.split(',');
+	mats = _.uniq(mats)
 	mats.splice(0, 1);
 	const vals = [];
 	_.each(data, (elem, ind) => {
