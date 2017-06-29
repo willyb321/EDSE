@@ -2,7 +2,8 @@ const names = JSON.parse(document.getElementById('names').innerText);
 $('#inp').select2({
 	data: names,
 	placeholder: 'Enter as many mats as you want. (Up to 15)',
-	maximumSelectionLength: 15
+	maximumSelectionLength: 15,
+	selectOnClose: true
 });
 
 $('#submit').on('click', e => {
