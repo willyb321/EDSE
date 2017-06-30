@@ -1,0 +1,31 @@
+{
+	"Ship Type": [{
+			"TR": "Transport"
+		},
+		{
+			"CO": "Combat"
+		},
+		{
+			"MA": "Military and Authority"
+		}
+	],
+	"USS Type": [{
+			"AN": "Anomaly"
+		},
+		{
+			"CA": "Combat Aftermath"
+		},
+		{
+			"CDP": "Convoy Dispersal Pattern"
+		},
+		{
+			"DE": "Degraded Emissions"
+		},
+		{
+			"EE": "Encoded Emissions"
+		},
+		{
+			"HGE": "High Grade Emissions"
+		}
+	]
+}
