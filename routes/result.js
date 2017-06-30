@@ -7,47 +7,23 @@ const _ = require('underscore');
 const data = require('../public/data.json');
 
 const names = Object.keys(data[0]);
-names.splice(_.indexOf(names, 'Included'), 1)
-const humanNames = {
-	'Ship Type': [
-			{
-				TR: 'Transport'
-			},
-			{
-				CO: 'Combat'
-			},
-			{
-				MA: 'Military and Authority'
-			}
-	],
-	'USS Type': [
-			{
-				AN: 'Anomaly'
-			},
-			{
-				CA: 'Combat Aftermath'
-			},
-			{
-				CDP: 'Convoy Dispersal Pattern'
-			},
-			{
-				DE: 'Degraded Emissions'
-			},
-			{
-				EE: 'Encoded Emissions'
-			},
-			{
-				HGE: 'High Grade Emissions'
-			}
-	]
-};
+names.splice(_.indexOf(names, 'Included'), 1);
+const humanNames = require('../public/humanNames.json');
 
+router.get('/', (req, res, next) => {
+	res.status(418);
+	res.render('Result', {
+		title: 'EDSE',
+		meta: 'I\'m a teapot.',
+		result: []
+	});
+});
 router.get('/:mat/:system?', async (req, res, next) => {
 	let mats = req.params.mat.split(',');
-	mats = _.uniq(mats)
+	mats = _.uniq(mats);
 	const vals = [];
 	_.each(data, (elem, ind) => {
-		delete elem.Included
+		delete elem.Included;
 		_.each(mats, mat => {
 			if (elem.Material === mat) {
 				vals.push(elem);
@@ -99,7 +75,11 @@ router.get('/:mat/:system?', async (req, res, next) => {
 	if (!_.isEmpty(vals)) {
 		datas[1] = valsMapped;
 	}
-	res.render('Result', {title: 'EDSE', result: datas, meta: `EDSE - ${mats.join(', ')}`});
+	res.render('Result', {
+		title: 'EDSE',
+		result: datas,
+		meta: `EDSE - ${mats.join(', ')}`
+	});
 });
 
 module.exports = router;
