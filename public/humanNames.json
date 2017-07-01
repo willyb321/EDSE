@@ -1,5 +1,6 @@
 {
-	"Ship Type": [{
+	"Ship Type": [
+		{
 			"TR": "Transport"
 		},
 		{
@@ -9,7 +10,8 @@
 			"MA": "Military and Authority"
 		}
 	],
-	"Source": [{
+	"Source": [
+		{
 			"AN": "Anomaly"
 		},
 		{
