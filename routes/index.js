@@ -4,7 +4,6 @@ const router = express.Router();
 const _ = require('underscore');
 const data = require('../public/data.json');
 
-const names = Object.keys(data[0]);
 const vals = [];
 _.each(data, elem => {
 	if (elem.Material && elem.Included !== '') {

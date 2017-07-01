@@ -1,4 +1,4 @@
-Material,USS Type,Ship Type,Confirmed?,Included,System State,System Government,System Allegiance,System Population,Inara Locations,Material Rarity,Material Type,Notes,System,USS Location
+Material,Source,Ship Type,Confirmed?,Included,System State,System Government,System Allegiance,System Population,Inara Locations,Material Rarity,Material Type,Notes,System,USS Location
 Basic Conductors,,TR,,,Any,,Independent,High,Ship salvage (Transport ships),Very common,Manufactured,,,
 Biotech Conductors,,,,,Boom,,Federation,Medium,Mission reward,Very rare,Manufactured,,,
 Chemical Distillery,CA,TR,Yes,Yes,,,Federation,High,"Ship salvage (Transport ships), USS",Standard,Manufactured,,,
@@ -60,7 +60,7 @@ Atypical Encryption Archives,,,,,,,,,Surface POI,Rare,Data,,,
 Classified Scan Databanks,,,,,,,,,"Ship scanning (Transport ships), Surface POI",Standard,Data,,,
 Classified Scan Fragment,,,,,,,,,"Surface data point, Mission reward, Ship scanning (Military & authority ships)",Very rare,Data,,,
 Cracked Industrial Firmware,,,,,,,,,"Surface data point, Mission reward",Standard,Data,,,
-Datamined Wake Exceptions,,,,,,,,,"High wake scanning, Mission reward, USS (Encoded emissions)",Very rare,Data,,,
+Datamined Wake Exceptions,EE,,,,,,,,"High wake scanning, Mission reward, USS (Encoded emissions)",Very rare,Data,,,
 Decoded Emission Data,,,,,,,,,"Ship scanning (Combat ships), Mission reward",Rare,Data,,,
 Distorted Shield Cycle Recordings,,,,,,,,,"Ship scanning (Transport ships), Mission reward",Very common,Data,,,
 Divergent Scan Data,,,,,,,,,"Surface data point, Mission reward",Rare,Data,,,

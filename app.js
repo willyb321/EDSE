@@ -6,6 +6,8 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
 const Raven = require('raven');
+const responseTime = require('response-time');
+const compression = require('compression');
 
 const index = require('./routes/index');
 const result = require('./routes/result');
@@ -15,7 +17,9 @@ Raven.config('https://813ced5f5d4d4ef5a389190165585e6b:7f3b9eba91fd4454929da5535
 // The request handler must be the first middleware on the app
 const app = express();
 app.use(Raven.requestHandler());
-const oneDay = 86400000;
+app.use(compression());
+app.use(responseTime());
+const cacheTime = 8640000;
 // View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -41,7 +45,7 @@ app.use(sassMiddleware({
 	sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public'), {
-	magage: oneDay,
+	maxAge: cacheTime,
 	etag: true
 }));
 

@@ -10,7 +10,7 @@ const names = Object.keys(data[0]);
 names.splice(_.indexOf(names, 'Included'), 1);
 const humanNames = require('../public/humanNames.json');
 
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
 	res.status(418);
 	res.render('Result', {
 		title: 'EDSE',
@@ -18,11 +18,11 @@ router.get('/', (req, res, next) => {
 		result: []
 	});
 });
-router.get('/:mat/:system?', async (req, res, next) => {
+router.get('/:mat/:system?', async (req, res) => {
 	let mats = req.params.mat.split(',');
 	mats = _.uniq(mats);
 	const vals = [];
-	_.each(data, (elem, ind) => {
+	_.each(data, elem => {
 		delete elem.Included;
 		_.each(mats, mat => {
 			if (elem.Material === mat) {
@@ -32,10 +32,10 @@ router.get('/:mat/:system?', async (req, res, next) => {
 	});
 	const valsMapped = _.each(vals, (item, index, vals) => {
 		const keysShip = item['Ship Type'].split(',');
-		const keysUSS = item['USS Type'].split(',');
+		const keysUSS = item['Source'].split(',');
 		const usskeys = [];
 		const shipkeys = [];
-		_.each(keysShip, (elem, ind) => {
+		_.each(keysShip, elem => {
 			elem = elem.trim();
 			try {
 				if (!_.contains(humanNames['Ship Type'], vals[index]['Ship Type']) && _.findKey(humanNames['Ship Type'], elem)) {
@@ -51,11 +51,11 @@ router.get('/:mat/:system?', async (req, res, next) => {
 				console.log(err);
 			}
 		});
-		_.each(keysUSS, (elem, ind) => {
+		_.each(keysUSS, elem => {
 			elem = elem.trim();
 			try {
-				if (!_.contains(humanNames['USS Type'], vals[index]['USS Type']) && _.findKey(humanNames['USS Type'], elem)) {
-					const newVal = humanNames['USS Type'][_.findKey(humanNames['USS Type'], elem)][elem];
+				if (!_.contains(humanNames['Source'], vals[index]['Source']) && _.findKey(humanNames['Source'], elem)) {
+					const newVal = humanNames['Source'][_.findKey(humanNames['Source'], elem)][elem];
 					usskeys.push(newVal);
 					console.log('USS newVal: ' + newVal);
 				} else {
@@ -67,7 +67,7 @@ router.get('/:mat/:system?', async (req, res, next) => {
 				console.log(err);
 			}
 		});
-		vals[index]['USS Type'] = usskeys.join(', ');
+		vals[index]['Source'] = usskeys.join(', ');
 		vals[index]['Ship Type'] = shipkeys.join(', ');
 	});
 	const datas = [];

@@ -9,7 +9,7 @@
 			"MA": "Military and Authority"
 		}
 	],
-	"USS Type": [{
+	"Source": [{
 			"AN": "Anomaly"
 		},
 		{
@@ -26,6 +26,30 @@
 		},
 		{
 			"HGE": "High Grade Emissions"
+		},
+		{
+			"WS": "Wake Scanning"
+		},
+		{
+			"MR": "Mission Reward"
+		},
+		{
+			"SS": "Ship Salvage"
+		},
+		{
+			"POI": "Surface POI"
+		},
+		{
+			"WF": "Weapons Fire"
+		},
+		{
+			"SSC": "Ship Scanning"
+		},
+		{
+			"SDP": "Surface Data Point"
+		},
+		{
+			"AR": "Ancient Ruins"
 		}
 	]
 }
