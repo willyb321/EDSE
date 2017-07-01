@@ -1,6 +1,6 @@
 const express = require('express');
 
-const router = express.Router();
+const router = express.Router(); // eslint-disable-line new-cap
 const request = require('request');
 const collect = require('collect.js');
 const _ = require('underscore');
@@ -32,7 +32,7 @@ router.get('/:mat/:system?', async (req, res) => {
 	});
 	const valsMapped = _.each(vals, (item, index, vals) => {
 		const keysShip = item['Ship Type'].split(',');
-		const keysUSS = item['Source'].split(',');
+		const keysUSS = item.Source.split(',');
 		const usskeys = [];
 		const shipkeys = [];
 		_.each(keysShip, elem => {
@@ -54,8 +54,8 @@ router.get('/:mat/:system?', async (req, res) => {
 		_.each(keysUSS, elem => {
 			elem = elem.trim();
 			try {
-				if (!_.contains(humanNames['Source'], vals[index]['Source']) && _.findKey(humanNames['Source'], elem)) {
-					const newVal = humanNames['Source'][_.findKey(humanNames['Source'], elem)][elem];
+				if (!_.contains(humanNames.Source, vals[index].Source) && _.findKey(humanNames.Source, elem)) {
+					const newVal = humanNames.Source[_.findKey(humanNames.Source, elem)][elem];
 					usskeys.push(newVal);
 					console.log('USS newVal: ' + newVal);
 				} else {
@@ -67,7 +67,7 @@ router.get('/:mat/:system?', async (req, res) => {
 				console.log(err);
 			}
 		});
-		vals[index]['Source'] = usskeys.join(', ');
+		vals[index].Source = usskeys.join(', ');
 		vals[index]['Ship Type'] = shipkeys.join(', ');
 	});
 	const datas = [];

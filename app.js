@@ -14,7 +14,6 @@ const result = require('./routes/result');
 
 Raven.config('https://813ced5f5d4d4ef5a389190165585e6b:7f3b9eba91fd4454929da55351ab59b3@sentry.io/186063').install();
 
-// The request handler must be the first middleware on the app
 const app = express();
 app.use(Raven.requestHandler());
 app.use(compression());
@@ -23,15 +22,7 @@ const cacheTime = 8640000;
 // View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-app.use(Raven.errorHandler());
 
-// Optional fallthrough error handler
-app.use((err, req, res, next) => {
-    // The error id is attached to `res.sentry` to be returned
-    // and optionally displayed to the user for support.
-	res.statusCode = 500;
-	res.end(res.sentry + '\n');
-});
 // Uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -52,6 +43,13 @@ app.use(express.static(path.join(__dirname, 'public'), {
 app.use('/', index);
 app.use('/result', result);
 
+app.use(Raven.errorHandler());
+app.use(function onError(err, req, res, next) {
+	// The error id is attached to `res.sentry` to be returned
+	// and optionally displayed to the user for support.
+	res.statusCode = 500;
+	res.end(res.sentry + '\n');
+});
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
 	const err = new Error('Not Found');
