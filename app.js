@@ -44,7 +44,7 @@ app.use('/', index);
 app.use('/result', result);
 
 app.use(Raven.errorHandler());
-app.use(function onError(err, req, res, next) {
+app.use((err, req, res, next) => {
 	// The error id is attached to `res.sentry` to be returned
 	// and optionally displayed to the user for support.
 	res.statusCode = 500;
