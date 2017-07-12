@@ -5,7 +5,6 @@ const request = require('request');
 const collect = require('collect.js');
 const _ = require('lodash');
 let data = require('../public/data.json');
-// names.splice(_.indexOf(names, 'Included'), 1);
 const humanNames = require('../public/humanNames.json');
 _.each(data, (elem, ind) => {
 	data[ind] = removeColumn(elem, ['Included', 'Inara Locations', 'System', 'USS Location']);
@@ -28,7 +27,6 @@ router.get('/:mat/:system?', async (req, res) => {
 	mats = _.uniq(mats);
 	const vals = [];
 	_.each(data, elem => {
-		// delete elem.Included;
 		_.each(mats, mat => {
 			if (elem.Material === mat) {
 				vals.push(elem);
