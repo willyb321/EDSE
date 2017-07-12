@@ -3,12 +3,17 @@ const express = require('express');
 const router = express.Router(); // eslint-disable-line new-cap
 const request = require('request');
 const collect = require('collect.js');
-const _ = require('underscore');
-const data = require('../public/data.json');
-
-const names = Object.keys(data[0]);
-names.splice(_.indexOf(names, 'Included'), 1);
+const _ = require('lodash');
+let data = require('../public/data.json');
+// names.splice(_.indexOf(names, 'Included'), 1);
 const humanNames = require('../public/humanNames.json');
+_.each(data, (elem, ind) => {
+	data[ind] = removeColumn(elem, ['Included', 'Inara Locations', 'System', 'USS Location']);
+});
+const names = Object.keys(data[0]);
+function removeColumn(data, columnName) {
+	return _.omit(data, columnName)
+}
 
 router.get('/', (req, res) => {
 	res.status(418);
@@ -23,7 +28,7 @@ router.get('/:mat/:system?', async (req, res) => {
 	mats = _.uniq(mats);
 	const vals = [];
 	_.each(data, elem => {
-		delete elem.Included;
+		// delete elem.Included;
 		_.each(mats, mat => {
 			if (elem.Material === mat) {
 				vals.push(elem);
@@ -38,7 +43,7 @@ router.get('/:mat/:system?', async (req, res) => {
 		_.each(keysShip, elem => {
 			elem = elem.trim();
 			try {
-				if (!_.contains(humanNames['Ship Type'], vals[index]['Ship Type']) && _.findKey(humanNames['Ship Type'], elem)) {
+				if (!_.hasIn(humanNames['Ship Type'], vals[index]['Ship Type']) && _.findKey(humanNames['Ship Type'], elem)) {
 					const newVal = humanNames['Ship Type'][_.findKey(humanNames['Ship Type'], elem)][elem];
 					shipkeys.push(newVal);
 					console.log('Ship newVal: ' + newVal);
@@ -54,7 +59,7 @@ router.get('/:mat/:system?', async (req, res) => {
 		_.each(keysUSS, elem => {
 			elem = elem.trim();
 			try {
-				if (!_.contains(humanNames.Source, vals[index].Source) && _.findKey(humanNames.Source, elem)) {
+				if (!_.hasIn(humanNames.Source, vals[index].Source) && _.findKey(humanNames.Source, elem)) {
 					const newVal = humanNames.Source[_.findKey(humanNames.Source, elem)][elem];
 					usskeys.push(newVal);
 					console.log('USS newVal: ' + newVal);
