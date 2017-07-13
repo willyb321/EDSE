@@ -53,5 +53,16 @@
 		{
 			"AR": "Ancient Ruins"
 		}
+	],
+	"Population": [
+		{
+			"Small": "Small (<10m)"
+		},
+		{
+			"Medium": "Medium (<100m)"
+		},
+		{
+			"High": "High: (>100m)"
+		}
 	]
 }

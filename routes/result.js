@@ -2,7 +2,6 @@ const express = require('express');
 
 const router = express.Router(); // eslint-disable-line new-cap
 const request = require('request');
-const collect = require('collect.js');
 const _ = require('lodash');
 let data = require('../public/data.json');
 const humanNames = require('../public/humanNames.json');
@@ -10,8 +9,8 @@ _.each(data, (elem, ind) => {
 	data[ind] = removeColumn(elem, ['Included', 'Inara Locations', 'System', 'USS Location']);
 });
 const names = Object.keys(data[0]);
-function removeColumn(data, columnName) {
-	return _.omit(data, columnName)
+function removeColumn(data, columnNames) {
+	return _.omit(data, columnNames)
 }
 
 router.get('/', (req, res) => {
@@ -36,6 +35,7 @@ router.get('/:mat/:system?', async (req, res) => {
 	const valsMapped = _.each(vals, (item, index, vals) => {
 		const keysShip = item['Ship Type'].split(',');
 		const keysUSS = item.Source.split(',');
+		let popkeys = item['System Population'];
 		const usskeys = [];
 		const shipkeys = [];
 		_.each(keysShip, elem => {
@@ -54,6 +54,23 @@ router.get('/:mat/:system?', async (req, res) => {
 				console.log(err);
 			}
 		});
+		console.log(humanNames.Population);
+		console.log(popkeys);
+		switch(popkeys) {
+			case 'Small':
+				popkeys = humanNames['Population'][_.findKey(humanNames['Population'], 'Small')]['Small'];
+				break;
+			case 'Medium':
+				popkeys = humanNames['Population'][_.findKey(humanNames['Population'], 'Medium')]['Medium'];
+				break;
+			case 'High':
+				popkeys = humanNames['Population'][_.findKey(humanNames['Population'], 'High')]['High'];
+				break;
+			default:
+				break;
+		}
+		item['System Population'] = popkeys;
+		console.log(item['System Population']);
 		_.each(keysUSS, elem => {
 			elem = elem.trim();
 			try {
