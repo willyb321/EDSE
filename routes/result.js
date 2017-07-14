@@ -21,8 +21,19 @@ router.get('/', (req, res) => {
 		result: []
 	});
 });
+
 router.get('/:mat/:system?', async (req, res) => {
+	const matVals = [];
+	_.each(data, (elem, index) => {
+		if (elem.Material && elem.Included !== '') {
+			matVals.push({mat: elem.Material, index: index});
+		}
+	});
 	let mats = req.params.mat.split(',');
+	_.each(mats, (elem, ind) => {
+		mats[ind] = matVals[elem].mat;
+		console.log(mats[ind])
+	});
 	mats = _.uniq(mats);
 	const vals = [];
 	_.each(data, elem => {
