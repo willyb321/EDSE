@@ -3,14 +3,16 @@ const express = require('express');
 const router = express.Router(); // eslint-disable-line new-cap
 const request = require('request');
 const _ = require('lodash');
-let data = require('../public/data.json');
+const data = require('../public/data.json');
+const getIndexes = require('./getindexes');
 const humanNames = require('../public/humanNames.json');
+
 _.each(data, (elem, ind) => {
 	data[ind] = removeColumn(elem, ['Included', 'Inara Locations', 'System', 'USS Location']);
 });
 const names = Object.keys(data[0]);
 function removeColumn(data, columnNames) {
-	return _.omit(data, columnNames)
+	return _.omit(data, columnNames);
 }
 
 router.get('/', (req, res) => {
@@ -23,16 +25,14 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:mat/:system?', async (req, res) => {
-	const matVals = [];
-	_.each(data, (elem, index) => {
-		if (elem.Material && elem.Included !== '') {
-			matVals.push({mat: elem.Material, index: index});
-		}
-	});
 	let mats = req.params.mat.split(',');
+	console.log(mats);
+	const matVals = getIndexes();
 	_.each(mats, (elem, ind) => {
+		elem = parseInt(elem);
+		console.log(matVals[elem]);
+		console.log(mats[ind]);
 		mats[ind] = matVals[elem].mat;
-		console.log(mats[ind])
 	});
 	mats = _.uniq(mats);
 	const vals = [];
@@ -65,17 +65,15 @@ router.get('/:mat/:system?', async (req, res) => {
 				console.log(err);
 			}
 		});
-		console.log(humanNames.Population);
-		console.log(popkeys);
-		switch(popkeys) {
+		switch (popkeys) {
 			case 'Small':
-				popkeys = humanNames['Population'][_.findKey(humanNames['Population'], 'Small')]['Small'];
+				popkeys = humanNames.Population[_.findKey(humanNames.Population, 'Small')].Small;
 				break;
 			case 'Medium':
-				popkeys = humanNames['Population'][_.findKey(humanNames['Population'], 'Medium')]['Medium'];
+				popkeys = humanNames.Population[_.findKey(humanNames.Population, 'Medium')].Medium;
 				break;
 			case 'High':
-				popkeys = humanNames['Population'][_.findKey(humanNames['Population'], 'High')]['High'];
+				popkeys = humanNames.Population[_.findKey(humanNames.Population, 'High')].High;
 				break;
 			default:
 				break;

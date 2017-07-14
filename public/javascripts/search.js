@@ -1,11 +1,13 @@
-let names = JSON.parse(document.getElementById('names').innerText);
-let materials = [];
-let indexes = [];
+const names = JSON.parse(document.getElementById('names').innerText);
+const materials = [];
+const indexes = [];
 console.log(names);
-_.each(names, elem => {
+
+_.each(names, (elem, ind) => {
 	materials.push(elem.mat);
 	indexes.push(elem.index);
 });
+
 $('#inp').select2({
 	data: materials,
 	placeholder: 'Enter as many mats as you want. (Up to 15)',
@@ -13,10 +15,11 @@ $('#inp').select2({
 });
 
 $('#submit').on('click', e => {
-	let mats = _.uniq(e.target.form.children[0].value.split(','));
+	const mats = _.uniq(e.target.form.children[0].value.split(','));
 	mats.splice(0, 1);
+	console.log(mats);
 	_.each(mats, (elem, ind) => {
-		mats[ind] = indexes[ind];
+		mats[ind] = names[_.findKey(names, {mat: elem})].index;
 	});
 	const system = e.target.form.children[2].value;
 	if (!_.isEmpty(mats)) {
