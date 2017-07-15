@@ -3,7 +3,7 @@ const materials = [];
 const indexes = [];
 console.log(names);
 
-_.each(names, (elem, ind) => {
+_.each(names, elem => {
 	materials.push(elem.mat);
 	indexes.push(elem.index);
 });

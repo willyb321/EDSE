@@ -26,12 +26,9 @@ router.get('/', (req, res) => {
 
 router.get('/:mat/:system?', async (req, res) => {
 	let mats = req.params.mat.split(',');
-	console.log(mats);
 	const matVals = getIndexes();
 	_.each(mats, (elem, ind) => {
 		elem = parseInt(elem);
-		console.log(matVals[elem]);
-		console.log(mats[ind]);
 		mats[ind] = matVals[elem].mat;
 	});
 	mats = _.uniq(mats);
