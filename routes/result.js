@@ -64,19 +64,18 @@ router.get('/:mat/:system?', async (req, res) => {
 		});
 		switch (popkeys) {
 			case 'Small':
-				popkeys = humanNames.Population[_.findKey(humanNames.Population, 'Small')].Small;
+				popkeys = humanNames.Population[_.findKey(humanNames.Population, 'Small')]['Small'];
 				break;
 			case 'Medium':
-				popkeys = humanNames.Population[_.findKey(humanNames.Population, 'Medium')].Medium;
+				popkeys = humanNames.Population[_.findKey(humanNames.Population, 'Medium')]['Medium'];
 				break;
 			case 'High':
-				popkeys = humanNames.Population[_.findKey(humanNames.Population, 'High')].High;
+				popkeys = humanNames.Population[_.findKey(humanNames.Population, 'High')]['High'];
 				break;
 			default:
 				break;
 		}
 		item['System Population'] = popkeys;
-		console.log(item['System Population']);
 		_.each(keysUSS, elem => {
 			elem = elem.trim();
 			try {
