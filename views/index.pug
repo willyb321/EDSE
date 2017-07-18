@@ -12,7 +12,7 @@ block content
 			div#bloodhound
 				form.form(onsubmit="event.preventDefault()")
 					input.input#inp(type="text" autocomplete="off" placeholder="Material" multiple="multiple")
-					input.input(type="text" autocomplete="off" placeholder="System (Optional)")
+					input.input(type="text" autocomplete="off" placeholder="Reference System (Optional)")
 					input.button.is-primary#submit(type="submit")
 	.hidden#names= JSON.stringify(names)
 	script(src="/javascripts/search.js")
