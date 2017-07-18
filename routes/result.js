@@ -16,6 +16,10 @@ function removeColumn(data, columnNames) {
 	return _.omit(data, columnNames);
 }
 
+process.on('unhandledRejection', err => {
+	console.log(err.stack)
+})
+
 router.get('/', (req, res) => {
 	res.status(418);
 	res.render('Result', {
@@ -64,36 +68,40 @@ function systemGet(mats, system) {
 				})
 			}
 			axios.all(allreqs)
-				.then(axios.spread((response, data) => {
+				.then(axios.spread((response, resdata) => {
 					let distances = [];
 					let distancesNum = [];
 					if (response.data.length > 0) {
-						_.each(data.data, (elem, ind) => {
-							distances.push({
-								index: ind,
-								name: elem.name,
-								distance: distanceGet(parseInt(elem.x), parseInt(elem.y), parseInt(elem.z), parseInt(response.data[0].x), parseInt(response.data[0].y), parseInt(response.data[0].z))
+						if (!resdata) {
+							resolve(['N/A', mat])
+						} else {
+							_.each(resdata.data, (elem, ind) => {
+								distances.push({
+									index: ind,
+									name: elem.name,
+									distance: distanceGet(parseInt(elem.x), parseInt(elem.y), parseInt(elem.z), parseInt(response.data[0].x), parseInt(response.data[0].y), parseInt(response.data[0].z))
+								});
+								distancesNum.push(distanceGet(parseInt(elem.x), parseInt(elem.y), parseInt(elem.z), parseInt(response.data[0].x), parseInt(response.data[0].y), parseInt(response.data[0].z)));
 							});
-							distancesNum.push(distanceGet(parseInt(elem.x), parseInt(elem.y), parseInt(elem.z), parseInt(response.data[0].x), parseInt(response.data[0].y), parseInt(response.data[0].z)));
-						});
-						console.log(distancesNum);
-						let minDis = _.min(distancesNum);
-						const sysToUse = _.findIndex(distances, dis => {
-							return dis.distance === minDis
-						});
-						if (data.data.length > 0) {
-							systemPos[0].x = data.data[sysToUse].x;
-							systemPos[0].y = data.data[sysToUse].y;
-							systemPos[0].z = data.data[sysToUse].z;
-							systemPos[0].name = data.data[sysToUse].name;
-						}
-						console.log(response.data.length + ' datas');
-						if (response.data.length > 0) {
-							systemPos[1].x = response.data[0].x;
-							systemPos[1].y = response.data[0].y;
-							systemPos[1].z = response.data[0].z;
-							systemPos[1].name = response.data[0].name;
-							resolve([response.data, mat, systemPos]);
+							console.log(distancesNum);
+							let minDis = _.min(distancesNum);
+							const sysToUse = _.findIndex(distances, dis => {
+								return dis.distance === minDis
+							});
+							if (resdata.data.length > 0) {
+								systemPos[0].x = resdata.data[sysToUse].x;
+								systemPos[0].y = resdata.data[sysToUse].y;
+								systemPos[0].z = resdata.data[sysToUse].z;
+								systemPos[0].name = resdata.data[sysToUse].name;
+							}
+							console.log(response.data.length + ' datas');
+							if (response.data.length > 0) {
+								systemPos[1].x = response.data[0].x;
+								systemPos[1].y = response.data[0].y;
+								systemPos[1].z = response.data[0].z;
+								systemPos[1].name = response.data[0].name;
+								resolve([response.data, mat, systemPos]);
+							}
 						}
 					} else {
 						resolve(['N/A', mat])
