@@ -67,32 +67,36 @@ function systemGet(mats, system) {
 				.then(axios.spread((response, data) => {
 					let distances = [];
 					let distancesNum = [];
-					_.each(data.data, (elem, ind) => {
-						distances.push({
-							index: ind,
-							name: elem.name,
-							distance: distanceGet(parseInt(elem.x), parseInt(elem.y), parseInt(elem.z), parseInt(response.data[0].x), parseInt(response.data[0].y), parseInt(response.data[0].z))
-						});
-						distancesNum.push(distanceGet(parseInt(elem.x), parseInt(elem.y), parseInt(elem.z), parseInt(response.data[0].x), parseInt(response.data[0].y), parseInt(response.data[0].z)));
-					});
-					console.log(distancesNum);
-					let minDis = _.min(distancesNum);
-					const sysToUse = _.findIndex(distances, dis => {
-						return dis.distance === minDis
-					});
-					if (data.data.length > 0) {
-						systemPos[0].x = data.data[sysToUse].x;
-						systemPos[0].y = data.data[sysToUse].y;
-						systemPos[0].z = data.data[sysToUse].z;
-						systemPos[0].name = data.data[sysToUse].name;
-					}
-					console.log(response.data.length + ' datas');
 					if (response.data.length > 0) {
-						systemPos[1].x = response.data[0].x;
-						systemPos[1].y = response.data[0].y;
-						systemPos[1].z = response.data[0].z;
-						systemPos[1].name = response.data[0].name;
-						resolve([response.data, mat, systemPos]);
+						_.each(data.data, (elem, ind) => {
+							distances.push({
+								index: ind,
+								name: elem.name,
+								distance: distanceGet(parseInt(elem.x), parseInt(elem.y), parseInt(elem.z), parseInt(response.data[0].x), parseInt(response.data[0].y), parseInt(response.data[0].z))
+							});
+							distancesNum.push(distanceGet(parseInt(elem.x), parseInt(elem.y), parseInt(elem.z), parseInt(response.data[0].x), parseInt(response.data[0].y), parseInt(response.data[0].z)));
+						});
+						console.log(distancesNum);
+						let minDis = _.min(distancesNum);
+						const sysToUse = _.findIndex(distances, dis => {
+							return dis.distance === minDis
+						});
+						if (data.data.length > 0) {
+							systemPos[0].x = data.data[sysToUse].x;
+							systemPos[0].y = data.data[sysToUse].y;
+							systemPos[0].z = data.data[sysToUse].z;
+							systemPos[0].name = data.data[sysToUse].name;
+						}
+						console.log(response.data.length + ' datas');
+						if (response.data.length > 0) {
+							systemPos[1].x = response.data[0].x;
+							systemPos[1].y = response.data[0].y;
+							systemPos[1].z = response.data[0].z;
+							systemPos[1].name = response.data[0].name;
+							resolve([response.data, mat, systemPos]);
+						}
+					} else {
+						resolve(['N/A', mat])
 					}
 				}));
 		})
