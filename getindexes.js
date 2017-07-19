@@ -1,5 +1,6 @@
 const _ = require('lodash');
-const data = require('../public/data.json');
+const data = require('./public/data.json');
+const fs = require('fs');
 
 function getIndexes() {
 	const vals = [];
@@ -11,6 +12,6 @@ function getIndexes() {
 		}
 	});
 	i = 0;
-	return vals;
+	fs.writeFileSync('public/indexes.json', JSON.stringify(vals), 'utf8');
 }
-module.exports = getIndexes;
+getIndexes();

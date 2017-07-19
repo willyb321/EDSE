@@ -4,7 +4,7 @@ const router = express.Router(); // eslint-disable-line new-cap
 const axios = require('axios');
 const _ = require('lodash');
 const data = require('../public/data.json');
-const getIndexes = require('./getindexes');
+const getIndexes = require('../public/indexes.json');
 const humanNames = require('../public/humanNames.json');
 
 _.each(data, (elem, ind) => {
@@ -123,7 +123,7 @@ function allSys(mats, system) {
 
 router.get('/:mat/:system?', async (req, res) => {
 	let mats = req.params.mat.split(',');
-	const matVals = getIndexes();
+	const matVals = getIndexes;
 	_.each(mats, (elem, ind) => {
 		elem = parseInt(elem);
 		mats[ind] = matVals[elem].mat;

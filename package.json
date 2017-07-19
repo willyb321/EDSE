@@ -3,7 +3,7 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"prestart": "node updatedata.js",
+		"prestart": "node updatedata.js && node getindexes.js",
 		"start": "nodemon ./bin/www"
 	},
 	"engines": {
