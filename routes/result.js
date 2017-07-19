@@ -105,7 +105,7 @@ function systemGet(mats, system) {
 						}
 					} else {
 						console.log('Nothing found, material was: ' + mat);
-						toRes = ['N/A', mat]
+						toRes = ['N/A', toFind]
 					}
 					resolve(toRes);
 				}));
@@ -138,7 +138,14 @@ router.get('/:mat/:system?', async (req, res) => {
 				console.log('distance: ' + distance);
 				data[resdata[1]].System = `${resdata[2][0].name} (${distance}ly away from ${resdata[2][1].name})`
 			} else {
-				data[resdata[1]].System = resdata[0];
+				console.log(resdata);
+				if (!data[resdata[1]]) {
+					data[_.findIndex(data, o => {
+						return o.Material === resdata[1];
+					})].System = resdata[0];
+				} else {
+					data[resdata[1]].System = resdata[0];
+				}
 			}
 		});
 	}).then(() => {
@@ -162,10 +169,8 @@ router.get('/:mat/:system?', async (req, res) => {
 					if (!_.hasIn(humanNames['Ship Type'], vals[index]['Ship Type']) && _.findKey(humanNames['Ship Type'], elem)) {
 						const newVal = humanNames['Ship Type'][_.findKey(humanNames['Ship Type'], elem)][elem];
 						shipkeys.push(newVal);
-						// console.log('Ship newVal: ' + newVal);
 					} else {
 						shipkeys.push(elem);
-						// console.log('Ship newVal: ' + newVal);
 					}
 				} catch (err) {
 					console.log(err);
@@ -191,17 +196,15 @@ router.get('/:mat/:system?', async (req, res) => {
 					if (!_.hasIn(humanNames.Source, vals[index].Source) && _.findKey(humanNames.Source, elem)) {
 						const newVal = humanNames.Source[_.findKey(humanNames.Source, elem)][elem];
 						usskeys.push(newVal);
-						// console.log('USS newVal: ' + newVal);
 					} else {
 						usskeys.push(elem);
-						// console.log('USS newVal: ' + newVal);
 					}
 				} catch (err) {
 					console.log(err);
 				}
 			});
-			vals[index].Source = usskeys.join(', ');
-			vals[index]['Ship Type'] = shipkeys.join(', ');
+			item.Source = usskeys.join(', ');
+			item['Ship Type'] = shipkeys.join(', ');
 		});
 		const datas = [];
 		datas[0] = names;
