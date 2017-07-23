@@ -7,6 +7,7 @@ block content
 				h1.title= title
 				a.subtitle.button.is-info(href="/") Go back
 	if result[1]
+		.hidden#refsys= refsys
 		.container.is-fluid
 			table.table.is-bordered.is-narrow
 				tr
@@ -14,9 +15,10 @@ block content
 						th= val
 				for obj in result[1]
 					tr
-						each val in obj
-							td= val
+						each val,ind in obj
+							td(class= "item"+ind.replace(' ', ''))= val
 	else
 		.container.is-fluid
 			h1.title No Results
 			a(href="/").subtitle Go back?
+	script(src="/javascripts/getsys.js")

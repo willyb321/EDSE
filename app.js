@@ -11,6 +11,7 @@ const compression = require('compression');
 
 const index = require('./routes/index');
 const result = require('./routes/result');
+const getSystems = require('./routes/getSystems');
 
 Raven.config('https://813ced5f5d4d4ef5a389190165585e6b:7f3b9eba91fd4454929da55351ab59b3@sentry.io/186063').install();
 
@@ -24,7 +25,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // Uncomment after placing your favicon in /public
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -42,6 +43,7 @@ app.use(express.static(path.join(__dirname, 'public'), {
 
 app.use('/', index);
 app.use('/result', result);
+app.use('/getsystems', getSystems);
 
 app.use(Raven.errorHandler());
 app.use((err, req, res, next) => {

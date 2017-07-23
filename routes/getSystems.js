@@ -20,19 +20,6 @@ process.on('unhandledRejection', err => {
 	console.log(err.stack)
 });
 
-router.get('/', (req, res) => {
-	res.status(418);
-	res.render('Result', {
-		title: 'EDSE',
-		meta: 'I\'m a teapot.',
-		result: []
-	});
-});
-
-function distanceGet(x1, y1, z1, x2, y2, z2) {
-	return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2) + Math.pow(z2 - z1, 2));
-}
-
 function systemGet(mats, system) {
 	return new Promise((resolve, reject) => {
 		let toFind = [];
@@ -120,84 +107,18 @@ function allSys(mats, system) {
 	});
 	return allSystems;
 }
+function distanceGet(x1, y1, z1, x2, y2, z2) {
+	return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2) + Math.pow(z2 - z1, 2));
+}
 
-router.get('/:mat/:system?', async (req, res) => {
-	let mats = req.params.mat.split(',');
-	const matVals = getIndexes;
-	_.each(mats, (elem, ind) => {
-		elem = parseInt(elem);
-		console.log(elem)
-		mats[ind] = matVals[_.findIndex(matVals, e => {return e.index === elem})].mat;
-	});
-	mats = _.uniq(mats);
-		const vals = [];
-		_.each(data, elem => {
-			_.each(mats, mat => {
-				if (elem.Material === mat) {
-					vals.push(elem);
-				}
-			});
-		});
-		const valsMapped = _.each(vals, (item, index, vals) => {
-			const keysShip = item['Ship Type'].split(',');
-			const keysUSS = item.Source.split(',');
-			let popkeys = item['System Population'];
-			const usskeys = [];
-			const shipkeys = [];
-			_.each(keysShip, elem => {
-				elem = elem.trim();
-				try {
-					if (!_.hasIn(humanNames['Ship Type'], vals[index]['Ship Type']) && _.findKey(humanNames['Ship Type'], elem)) {
-						const newVal = humanNames['Ship Type'][_.findKey(humanNames['Ship Type'], elem)][elem];
-						shipkeys.push(newVal);
-					} else {
-						shipkeys.push(elem);
-					}
-				} catch (err) {
-					console.log(err);
-				}
-			});
-			switch (popkeys) {
-				case 'Small':
-					popkeys = humanNames.Population[_.findKey(humanNames.Population, 'Small')]['Small'];
-					break;
-				case 'Medium':
-					popkeys = humanNames.Population[_.findKey(humanNames.Population, 'Medium')]['Medium'];
-					break;
-				case 'High':
-					popkeys = humanNames.Population[_.findKey(humanNames.Population, 'High')]['High'];
-					break;
-				default:
-					break;
-			}
-			item['System Population'] = popkeys;
-			_.each(keysUSS, elem => {
-				elem = elem.trim();
-				try {
-					if (!_.hasIn(humanNames.Source, vals[index].Source) && _.findKey(humanNames.Source, elem)) {
-						const newVal = humanNames.Source[_.findKey(humanNames.Source, elem)][elem];
-						usskeys.push(newVal);
-					} else {
-						usskeys.push(elem);
-					}
-				} catch (err) {
-					console.log(err);
-				}
-			});
-			item.Source = usskeys.join(', ');
-			item['Ship Type'] = shipkeys.join(', ');
-		});
-		const datas = [];
-		datas[0] = names;
-		if (!_.isEmpty(vals)) {
-			datas[1] = valsMapped;
-		}
-		res.render('Result', {
-			title: 'EDSE',
-			result: datas,
-			refsys: req.params.system,
-			meta: `EDSE - ${mats.join(', ')}`
-		});
+router.get('/:refsys/:mat', (req, res, next) => {
+	let refsys = req.params.refsys;
+	let mat = req.params.mat;
+	systemGet(mat, refsys)
+	.then(result => {
+		console.log(result);
+		res.json(result);
+	})
 });
 
 module.exports = router;
