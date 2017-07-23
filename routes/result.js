@@ -126,7 +126,8 @@ router.get('/:mat/:system?', async (req, res) => {
 	const matVals = getIndexes;
 	_.each(mats, (elem, ind) => {
 		elem = parseInt(elem);
-		mats[ind] = matVals[elem].mat;
+		console.log(elem)
+		mats[ind] = matVals[_.findIndex(matVals, e => {return e.index === elem})].mat;
 	});
 	mats = _.uniq(mats);
 	let allSystems = allSys(mats, req.params.system);
