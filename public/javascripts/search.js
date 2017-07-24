@@ -34,7 +34,6 @@ function importURL(url) {
 	let found = localStorage.getItem(`url_${url}`)
 	if (url === null) {
 		found = localStorage.getItem('toImport');
-		localStorage.removeItem('toImport');
 	}
 	if (found) {
 		found = JSON.parse(found);
