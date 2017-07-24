@@ -7,12 +7,13 @@ block content
 			.container
 				h1.title= title
 				h2.subtitle Enter one or more materials required and then the system location to search from
+				button.button.is-info(onclick='askForURL()') Import URL
 	section.section
 		.container
 			div#bloodhound
 				form.form(onsubmit="event.preventDefault()")
 					input.input#inp(type="text" autocomplete="off" placeholder="Material" multiple="multiple")
-					input.input(type="text" autocomplete="off" placeholder="Reference System (Optional)")
+					input.input#sys(type="text" autocomplete="off" placeholder="Reference System (Optional)")
 					input.button.is-primary#submit(type="submit")
 	.hidden#names= JSON.stringify(names)
 	script(src="/javascripts/search.js")

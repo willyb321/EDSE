@@ -116,7 +116,6 @@ router.get('/:refsys/:mat', (req, res, next) => {
 	let mat = req.params.mat;
 	systemGet(mat, refsys)
 	.then(result => {
-		console.log(result);
 		res.json(result);
 	})
 });
