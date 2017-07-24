@@ -5,7 +5,8 @@ block content
 		.hero-body
 			.container
 				h1.title= title
-				a.subtitle.button.is-info(href="/") Go back
+				a.button.is-info(href="/") Go back
+				a.button.is-info(onclick='editURL()') Edit Search
 	if result[1]
 		.hidden#refsys= refsys
 		.container.is-fluid

@@ -14,6 +14,12 @@ const inpSel2 = $('#inp').select2({
 	maximumSelectionLength: 15
 });
 
+window.onload = () => {
+	if (window.location.href.search(/\?importURL=true/) !== -1 && localStorage.getItem('toImport')) {
+		importURL(null);
+	}
+}
+
 function askForURL() {
 	swal({
 		title: 'Input URL',
@@ -26,6 +32,10 @@ function askForURL() {
 
 function importURL(url) {
 	let found = localStorage.getItem(`url_${url}`)
+	if (url === null) {
+		found = localStorage.getItem('toImport');
+		localStorage.removeItem('toImport');
+	}
 	if (found) {
 		found = JSON.parse(found);
 		if (typeof found.mats === 'string') {
@@ -65,7 +75,7 @@ $('#submit').on('click', e => {
 		system: system
 	}));
 	if (!_.isEmpty(mats)) {
-		window.location.href = `${window.location}result/${mats}/${system}`;
+		window.location.href = `${window.location.href.replace('?importURL=true', '')}result/${mats}/${system}`;
 	} else {
 		swal('Enter at least 1 material', 'Up to 15', 'error')
 			.catch(swal.noop);

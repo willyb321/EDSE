@@ -22,11 +22,18 @@ function getSysNDis(refsys, mat, elem) {
 	})
 }
 
+function editURL() {
+	const parsedURL = document.createElement('a');
+	parsedURL.href = window.location.href;
+	window.location.href = `${parsedURL.protocol}//${parsedURL.host}?importURL=true`
+}
+
 window.onload = () => {
 	_.each(allSystems, elem => {
 			mats.push(elem.parentElement.children[0].innerText);
 	});
-	localStorage.setItem(`url_${window.location}`, JSON.stringify({mats: mats.join(','), system: refsys}));
+	localStorage.setItem('toImport', JSON.stringify({url: window.location.href, mats: mats.join(','), system: refsys}));
+	localStorage.setItem(`url_${window.location.href}`, JSON.stringify({mats: mats.join(','), system: refsys}));
 	if (refsys.trim() !== '') {
 		allSysNDis();
 	}
