@@ -37,11 +37,12 @@ window.onload = () => {
 	if (refsys.trim() !== '') {
 		allSysNDis();
 	}
-}
+};
 let allSysPromises = [];
 function allSysNDis() {
 	if (refsys) {
 		_.each(allSystems, elem => {
+			elem.innerText = 'Loading...';
 			allSysPromises.push(getSysNDis(refsys, elem.parentElement.children[0].innerText, elem));
 		});
 		Promise.all(allSysPromises).then(() => {
