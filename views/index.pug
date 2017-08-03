@@ -13,6 +13,6 @@ block content
 				form.form(onsubmit="event.preventDefault()")
 					input.input#inp(type="text" autocomplete="off" placeholder="Material" multiple="multiple")
 					input.input#sys(type="text" autocomplete="off" placeholder="Reference System (Optional)")
-					input.button.is-primary#submit(type="submit")
+					input.button.is-info.is-bold#submit(type="submit")
 	.hidden#names= JSON.stringify(names)
 	script(src="/javascripts/search.js")
