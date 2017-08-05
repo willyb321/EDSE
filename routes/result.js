@@ -17,7 +17,7 @@ function removeColumn(data, columnNames) {
 }
 
 process.on('unhandledRejection', err => {
-	console.log(err.stack)
+	console.log(err.stack);
 });
 
 router.get('/', (req, res) => {
@@ -35,17 +35,17 @@ function distanceGet(x1, y1, z1, x2, y2, z2) {
 
 function systemGet(mats, system) {
 	return new Promise((resolve, reject) => {
-		let toFind = [];
-		let toPush = _.findKey(data, (elemtf) => {
+		const toFind = [];
+		const toPush = _.findKey(data, elemtf => {
 			return elemtf.Material === mats;
 		});
 		toFind.push(toPush);
 		let toRes = [];
 		if (system === null || system === undefined) {
-			resolve(['N/A', mats])
+			resolve(['N/A', mats]);
 		}
 		_.each(toFind, mat => {
-			let params = {};
+			const params = {};
 			if (data[mat]['System Allegiance']) {
 				params.allegiancename = data[mat]['System Allegiance'];
 			}
@@ -59,20 +59,20 @@ function systemGet(mats, system) {
 				params.primaryeconomyname = data[mat]['System Economy'];
 			}
 			console.log('Params: ' + JSON.stringify(params));
-			let systemPos = [{}, {}];
-			let allreqs = [axios.get(`http://guest:secret@elitebgs.kodeblox.com/api/eddb/v1/populatedsystems?name=${system}`)];
+			const systemPos = [{}, {}];
+			const allreqs = [axios.get(`http://guest:secret@elitebgs.kodeblox.com/api/eddb/v1/populatedsystems?name=${system}`)];
 			if (!_.isEmpty(params)) {
 				allreqs[1] = axios.get(`http://guest:secret@elitebgs.kodeblox.com/api/eddb/v1/populatedsystems`, {
-					params: params
-				})
+					params
+				});
 			}
 			axios.all(allreqs)
 				.then(axios.spread((response, resdata) => {
-					let distances = [];
-					let distancesNum = [];
+					const distances = [];
+					const distancesNum = [];
 					if (response.data.length > 0) {
 						if (!resdata) {
-							resolve(['N/A', mat])
+							resolve(['N/A', mat]);
 						} else {
 							_.each(resdata.data, (elem, ind) => {
 								distances.push({
@@ -82,9 +82,9 @@ function systemGet(mats, system) {
 								});
 								distancesNum.push(distanceGet(parseInt(elem.x), parseInt(elem.y), parseInt(elem.z), parseInt(response.data[0].x), parseInt(response.data[0].y), parseInt(response.data[0].z)));
 							});
-							let minDis = _.min(distancesNum);
+							const minDis = _.min(distancesNum);
 							const sysToUse = _.findIndex(distances, dis => {
-								return dis.distance === minDis
+								return dis.distance === minDis;
 							});
 							if (resdata.data.length > 0) {
 								console.log(response.data.length + ' datas');
@@ -105,16 +105,16 @@ function systemGet(mats, system) {
 						}
 					} else {
 						console.log('Nothing found, material was: ' + mat);
-						toRes = ['N/A', toFind]
+						toRes = ['N/A', toFind];
 					}
 					resolve(toRes);
 				}));
 		});
-	})
+	});
 }
 
 function allSys(mats, system) {
-	let allSystems = [];
+	const allSystems = [];
 	mats.forEach(elem => {
 		allSystems.push(systemGet(elem, system));
 	});
@@ -128,7 +128,7 @@ router.get('/:mat/:system?', async (req, res) => {
 		elem = parseInt(elem);
 		console.log(elem);
 		mats[ind] = matVals[_.findIndex(matVals, e => {
-			return e.index === elem
+			return e.index === elem;
 		})].mat;
 	});
 	mats = _.uniq(mats);
@@ -161,13 +161,13 @@ router.get('/:mat/:system?', async (req, res) => {
 		});
 		switch (popkeys) {
 			case 'Small':
-				popkeys = humanNames.Population[_.findKey(humanNames.Population, 'Small')]['Small'];
+				popkeys = humanNames.Population[_.findKey(humanNames.Population, 'Small')].Small;
 				break;
 			case 'Medium':
-				popkeys = humanNames.Population[_.findKey(humanNames.Population, 'Medium')]['Medium'];
+				popkeys = humanNames.Population[_.findKey(humanNames.Population, 'Medium')].Medium;
 				break;
 			case 'High':
-				popkeys = humanNames.Population[_.findKey(humanNames.Population, 'High')]['High'];
+				popkeys = humanNames.Population[_.findKey(humanNames.Population, 'High')].High;
 				break;
 			default:
 				break;
